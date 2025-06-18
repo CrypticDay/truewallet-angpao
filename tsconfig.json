@@ -17,7 +17,7 @@
     "lib": ["ES2020", "DOM"],     // เพิ่ม DOM สำหรับ fetch API
     "baseUrl": ".",
     "paths": {
-      "*": ["types/*"]
+      "*": ["@types/*"]
     }
   },
   "include": [
