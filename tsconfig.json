@@ -1,14 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "esnext", // Change to esnext for ESM
-    "moduleResolution": "node", // Add for proper ESM resolution
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",           // เพิ่ม rootDir เพื่อให้โครงสร้างใน dist เรียบร้อย
+    "outDir": "./dist",           // เพิ่ม ./ เพื่อความชัดเจน
+    "declaration": true,          // สร้าง .d.ts files
+    "declarationMap": true,       // สร้าง source map สำหรับ types (optional)
+    "sourceMap": true,            // สร้าง source map สำหรับ debugging (optional)
     "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,  // ช่วยให้ import ทำงานได้ดีขึ้น
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "outDir": "dist",
-    "declaration": true // Ensure .d.ts files are generated
+    "resolveJsonModule": true,    // ถ้าต้องการ import JSON files
+    "lib": ["ES2020", "DOM"]      // เพิ่ม DOM สำหรับ fetch API
   },
-  "include": ["src", "truewallet-angpao.d.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",               // exclude test files
+    "**/*.spec.ts"
+  ]
 }

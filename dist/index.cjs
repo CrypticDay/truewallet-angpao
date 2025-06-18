@@ -26,26 +26,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
 
 // src/index.ts
 var src_exports = {};
@@ -57,83 +37,79 @@ module.exports = __toCommonJS(src_exports);
 
 // src/redeemAngpao.ts
 var import_node_fetch = __toESM(require("node-fetch"), 1);
-function redeemAngpao(phone, voucherCode) {
-  return __async(this, null, function* () {
-    try {
-      const url = `https://gift.truemoney.com/campaign/vouchers/${voucherCode}/redeem`;
-      const response = yield (0, import_node_fetch.default)(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          mobile: phone,
-          voucher_hash: voucherCode
-        })
-      });
-      const data = yield response.json();
-      if (data.status.code === "SUCCESS") {
-        return {
-          status: "SUCCESS",
-          amount: data.data.amount_baht
-        };
-      } else {
-        return {
-          status: "FAIL",
-          message: data.status.message || "Unknown error"
-        };
-      }
-    } catch (error) {
+async function redeemAngpao(phone, voucherCode) {
+  try {
+    const url = `https://gift.truemoney.com/campaign/vouchers/${voucherCode}/redeem`;
+    const response = await (0, import_node_fetch.default)(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        mobile: phone,
+        voucher_hash: voucherCode
+      })
+    });
+    const data = await response.json();
+    if (data.status.code === "SUCCESS") {
+      return {
+        status: "SUCCESS",
+        amount: data.data.amount_baht
+      };
+    } else {
       return {
         status: "FAIL",
-        message: error.message
+        message: data.status.message || "Unknown error"
       };
     }
-  });
+  } catch (error) {
+    return {
+      status: "FAIL",
+      message: error.message
+    };
+  }
 }
 
 // src/clientRedeemAngpao.ts
-function clientRedeemAngpao(phone, voucherCode) {
-  return __async(this, null, function* () {
-    try {
-      const url = `https://gift.truemoney.com/campaign/vouchers/${voucherCode}/redeem`;
-      const response = yield fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          mobile: phone,
-          voucher_hash: voucherCode
-        })
-      });
-      const data = yield response.json();
-      if (data.status.code === "SUCCESS") {
-        return {
-          status: "SUCCESS",
-          amount: data.data.amount_baht
-        };
-      } else {
-        return {
-          status: "FAIL",
-          message: data.status.message || "Unknown error"
-        };
-      }
-    } catch (error) {
-      const errorMessage = error.message;
-      if (errorMessage.includes("CORS") || errorMessage.includes("Cross-Origin") || errorMessage.includes("blocked")) {
-        return {
-          status: "CORS_ERROR",
-          message: "CORS Error: \u0E15\u0E49\u0E2D\u0E07\u0E41\u0E01\u0E49\u0E44\u0E02\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32 CORS \u0E2B\u0E23\u0E37\u0E2D\u0E43\u0E0A\u0E49 Proxy Server"
-        };
-      }
+async function clientRedeemAngpao(phone, voucherCode) {
+  try {
+    const url = `https://gift.truemoney.com/campaign/vouchers/${voucherCode}/redeem`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        mobile: phone,
+        voucher_hash: voucherCode
+      })
+    });
+    const data = await response.json();
+    if (data.status.code === "SUCCESS") {
+      return {
+        status: "SUCCESS",
+        amount: data.data.amount_baht
+      };
+    } else {
       return {
         status: "FAIL",
-        message: errorMessage
+        message: data.status.message || "Unknown error"
       };
     }
-  });
+  } catch (error) {
+    const errorMessage = error.message;
+    if (errorMessage.includes("CORS") || errorMessage.includes("Cross-Origin") || errorMessage.includes("blocked")) {
+      return {
+        status: "CORS_ERROR",
+        message: "CORS Error: \u0E15\u0E49\u0E2D\u0E07\u0E41\u0E01\u0E49\u0E44\u0E02\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32 CORS \u0E2B\u0E23\u0E37\u0E2D\u0E43\u0E0A\u0E49 Proxy Server"
+      };
+    }
+    return {
+      status: "FAIL",
+      message: errorMessage
+    };
+  }
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
