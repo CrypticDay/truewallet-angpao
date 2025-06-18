@@ -54,7 +54,7 @@ async function example() {
 ### Client-side Usage (Browser)
 
 ```ts
-import { clientRedeemAngpao } from 'truemoney-angpao/client';
+import { clientRedeemAngpao } from 'truemoney-angpao';
 
 async function redeemInBrowser() {
   const result = await clientRedeemAngpao('0891234567', 'ABC123DEF456');
@@ -127,7 +127,7 @@ app.listen(PORT, () => {
 ```tsx
 // hooks/useAngpaoRedemption.ts
 import { useState, useCallback } from 'react';
-import { clientRedeemAngpao, ClientRedeemResult } from 'truemoney-angpao/client';
+import { clientRedeemAngpao, ClientRedeemResult } from 'truemoney-angpao';
 
 interface UseAngpaoRedemption {
   redeem: (phone: string, voucherCode: string) => Promise<ClientRedeemResult>;
