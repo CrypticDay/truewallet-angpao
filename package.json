@@ -1,0 +1,42 @@
+{
+  "name": "truewallet-angpao",
+  "version": "1.0.2",
+  "description": "Redeem TrueMoney Angpao programmatically with TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts",
+    "dev": "tsc --watch",
+    "test": "bun src/test.ts"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^7.3.0",
+    "typescript": "^5.8.3"
+  },
+  "author": "CrypticDay",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crypticday/truewallet-angpao.git"
+  },
+  "keywords": [
+    "truemoney",
+    "truewallet",
+    "angpao",
+    "voucher",
+    "api",
+    "typescript"
+  ]
+}

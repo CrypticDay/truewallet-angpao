@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "esnext", // Change to esnext for ESM
+    "moduleResolution": "node", // Add for proper ESM resolution
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "declaration": true // Ensure .d.ts files are generated
+  },
+  "include": ["src"]
+}
