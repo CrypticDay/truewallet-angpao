@@ -5,4 +5,11 @@ interface RedeemResult {
 }
 declare function redeemAngpao(phone: string, voucherCode: string): Promise<RedeemResult>;
 
-export { type RedeemResult, redeemAngpao };
+interface ClientRedeemResult {
+    status: 'SUCCESS' | 'FAIL' | 'CORS_ERROR';
+    amount?: number;
+    message?: string;
+}
+declare function clientRedeemAngpao(phone: string, voucherCode: string): Promise<ClientRedeemResult>;
+
+export { type ClientRedeemResult, type RedeemResult, clientRedeemAngpao, redeemAngpao };

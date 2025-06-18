@@ -10,5 +10,5 @@
     "outDir": "dist",
     "declaration": true // Ensure .d.ts files are generated
   },
-  "include": ["src"]
+  "include": ["src", "truewallet-angpao.d.ts"]
 }
