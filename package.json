@@ -1,6 +1,6 @@
 {
   "name": "truewallet-angpao",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Redeem TrueMoney Angpao programmatically with TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
