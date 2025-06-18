@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "rootDir": "./src",           // เพิ่ม rootDir เพื่อให้โครงสร้างใน dist เรียบร้อย
-    "outDir": "./dist",           // เพิ่ม ./ เพื่อความชัดเจน
-    "declaration": true,          // สร้าง .d.ts files
-    "declarationMap": true,       // สร้าง source map สำหรับ types (optional)
-    "sourceMap": true,            // สร้าง source map สำหรับ debugging (optional)
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "strict": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,  // ช่วยให้ import ทำงานได้ดีขึ้น
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,    // ถ้าต้องการ import JSON files
-    "lib": ["ES2020", "DOM"],     // เพิ่ม DOM สำหรับ fetch API
+    "resolveJsonModule": true,
+    "lib": ["ES2020", "DOM"],
     "baseUrl": ".",
     "paths": {
       "*": ["@types/*"]
@@ -26,7 +26,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "**/*.test.ts",               // exclude test files
+    "**/*.test.ts",
     "**/*.spec.ts"
   ]
 }

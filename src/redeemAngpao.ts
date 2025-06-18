@@ -1,5 +1,4 @@
-// src/redeemAngpao.ts
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
 export interface RedeemResult {
     status: 'SUCCESS' | 'FAIL';

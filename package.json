@@ -3,12 +3,12 @@
   "version": "1.1.2",
   "description": "Redeem TrueMoney Angpao programmatically with TypeScript",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.cts",
   "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.cts"
     }
   },
   "scripts": {
@@ -17,8 +17,7 @@
     "test": "bun src/test.ts"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2",
-    "truewallet-angpao": "^1.0.4"
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.1",

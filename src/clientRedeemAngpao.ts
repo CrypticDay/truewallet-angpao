@@ -1,5 +1,3 @@
-// src/clientRedeemAngpao.ts
-
 export interface ClientRedeemResult {
     status: 'SUCCESS' | 'FAIL' | 'CORS_ERROR';
     amount?: number;
@@ -38,7 +36,6 @@ export async function clientRedeemAngpao(phone: string, voucherCode: string): Pr
     } catch (error) {
         const errorMessage = (error as Error).message;
 
-
         if (errorMessage.includes('CORS') ||
             errorMessage.includes('Cross-Origin') ||
             errorMessage.includes('blocked')) {
@@ -54,3 +51,5 @@ export async function clientRedeemAngpao(phone: string, voucherCode: string): Pr
         };
     }
 }
+
+export * from './redeemAngpao';
