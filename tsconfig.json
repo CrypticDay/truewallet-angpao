@@ -14,7 +14,11 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,    // ถ้าต้องการ import JSON files
-    "lib": ["ES2020", "DOM"]      // เพิ่ม DOM สำหรับ fetch API
+    "lib": ["ES2020", "DOM"],     // เพิ่ม DOM สำหรับ fetch API
+    "baseUrl": ".",
+    "paths": {
+      "*": ["types/*"]
+    }
   },
   "include": [
     "src/**/*"
