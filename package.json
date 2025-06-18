@@ -30,7 +30,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crypticday/truewallet-angpao.git"
+    "url": "git+https://github.com/crypticday/truewallet-angpao.git"
   },
   "keywords": [
     "truemoney",
@@ -39,5 +39,9 @@
     "voucher",
     "api",
     "typescript"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/crypticday/truewallet-angpao/issues"
+  },
+  "homepage": "https://github.com/crypticday/truewallet-angpao#readme"
 }
